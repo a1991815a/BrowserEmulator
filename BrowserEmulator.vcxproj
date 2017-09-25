@@ -128,8 +128,10 @@
     <ClCompile Include="SimpleLifeSpanHandler.cpp" />
     <ClCompile Include="SimpleLoadHandler.cpp" />
     <ClCompile Include="SimpleRenderHandler.cpp" />
+    <ClCompile Include="UIBase.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Input.h" />
     <ClInclude Include="SimpleApp.h" />
     <ClInclude Include="SimpleClient.h" />
     <ClInclude Include="SimpleDialogHandler.h" />
@@ -139,6 +141,7 @@
     <ClInclude Include="SimpleLifeSpanHandler.h" />
     <ClInclude Include="SimpleLoadHandler.h" />
     <ClInclude Include="SimpleRenderHandler.h" />
+    <ClInclude Include="UIBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

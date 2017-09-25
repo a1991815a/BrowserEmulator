@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+/Debug/cef.pak
+/Debug/cef_100_percent.pak
+/Debug/cef_200_percent.pak
+/Debug/cef_extensions.pak
+/Debug/devtools_resources.pak
+/Debug/icudtl.dat
+/Debug/locales
