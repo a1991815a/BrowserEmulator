@@ -13,66 +13,130 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="UI控件">
-      <UniqueIdentifier>{041e05ba-01da-4d6e-83bb-0b5ecef84705}</UniqueIdentifier>
+    <Filter Include="delegate">
+      <UniqueIdentifier>{96eab059-f994-4507-9c21-cc8bd3296487}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CefApp">
+      <UniqueIdentifier>{6dc7d9c4-049b-4e4e-87c2-9d816903b188}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client">
+      <UniqueIdentifier>{71820919-e86f-40d2-9b0a-0dc4b159bacb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Handler">
+      <UniqueIdentifier>{19e0ee39-178d-45f1-881e-cc9645570428}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="SimpleV8NotificationHandler.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleApp.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="CefDelegate.cpp">
+      <Filter>delegate</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleClient.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="Log.cpp">
+      <Filter>delegate</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleRenderHandler.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="WinAppDelegate.cpp">
+      <Filter>delegate</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleLoadHandler.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="AppDelegate.cpp">
+      <Filter>delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiAppFactory.cpp">
+      <Filter>delegate</Filter>
+    </ClCompile>
+    <ClCompile Include="BrowserApp.cpp">
+      <Filter>CefApp</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderApp.cpp">
+      <Filter>CefApp</Filter>
+    </ClCompile>
+    <ClCompile Include="BrowserClient.cpp">
+      <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleJSDialogHandler.cpp">
+      <Filter>Client\Handler</Filter>
     </ClCompile>
     <ClCompile Include="SimpleLifeSpanHandler.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Client\Handler</Filter>
     </ClCompile>
-    <ClCompile Include="UIBase.cpp">
-      <Filter>UI控件</Filter>
+    <ClCompile Include="SimpleLoadHandler.cpp">
+      <Filter>Client\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleRenderHandler.cpp">
+      <Filter>Client\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleRenderProcessHandle.cpp">
+      <Filter>Client\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleRequestHandler.cpp">
+      <Filter>Client\Handler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SimpleApp.h">
+    <ClInclude Include="SimpleV8Interceptor.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleClient.h">
+    <ClInclude Include="SimpleV8NotificationHandler.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleRenderProcessHandle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CefAppFactory.h">
+      <Filter>delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="CefDelegate.h">
+      <Filter>delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="Log.h">
+      <Filter>delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="CefMixedMessageLoop.h">
+      <Filter>delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="WinAppDelegate.h">
+      <Filter>delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="AppDelegate.h">
+      <Filter>delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiAppFactory.h">
+      <Filter>delegate</Filter>
+    </ClInclude>
+    <ClInclude Include="BrowserApp.h">
+      <Filter>CefApp</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderApp.h">
+      <Filter>CefApp</Filter>
+    </ClInclude>
+    <ClInclude Include="BrowserClient.h">
+      <Filter>Client</Filter>
     </ClInclude>
     <ClInclude Include="SimpleDialogHandler.h">
-      <Filter>头文件</Filter>
+      <Filter>Client\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleDisplayHandler.h">
-      <Filter>头文件</Filter>
+      <Filter>Client\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleFocusHandler.h">
-      <Filter>头文件</Filter>
+      <Filter>Client\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleJSDialogHandler.h">
-      <Filter>头文件</Filter>
+      <Filter>Client\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleLifeSpanHandler.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SimpleRenderHandler.h">
-      <Filter>头文件</Filter>
+      <Filter>Client\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleLoadHandler.h">
-      <Filter>头文件</Filter>
+      <Filter>Client\Handler</Filter>
     </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>UI控件</Filter>
+    <ClInclude Include="SimpleRenderHandler.h">
+      <Filter>Client\Handler</Filter>
     </ClInclude>
-    <ClInclude Include="UIBase.h">
-      <Filter>UI控件</Filter>
+    <ClInclude Include="SimpleRequestHandler.h">
+      <Filter>Client\Handler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

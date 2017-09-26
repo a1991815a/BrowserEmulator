@@ -84,7 +84,7 @@
     </ClCompile>
     <Link>
       <LargeAddressAware>true</LargeAddressAware>
-      <AdditionalDependencies>..\..\Debug\libcef.lib;..\libcef_dll_wrapper\Debug\libcef_dll_wrapper.lib;comctl32.lib;rpcrt4.lib;shlwapi.lib;ws2_32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\..\Debug\libcef.lib;..\libcef_dll_wrapper\Debug\libcef_dll_wrapper.lib;comctl32.lib;rpcrt4.lib;shlwapi.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -122,18 +122,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AppDelegate.cpp" />
+    <ClCompile Include="BrowserApp.cpp" />
+    <ClCompile Include="BrowserClient.cpp" />
+    <ClCompile Include="CefDelegate.cpp" />
+    <ClCompile Include="Log.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SimpleApp.cpp" />
-    <ClCompile Include="SimpleClient.cpp" />
+    <ClCompile Include="MultiAppFactory.cpp" />
+    <ClCompile Include="RenderApp.cpp" />
+    <ClCompile Include="SimpleJSDialogHandler.cpp" />
     <ClCompile Include="SimpleLifeSpanHandler.cpp" />
     <ClCompile Include="SimpleLoadHandler.cpp" />
     <ClCompile Include="SimpleRenderHandler.cpp" />
-    <ClCompile Include="UIBase.cpp" />
+    <ClCompile Include="SimpleRenderProcessHandle.cpp" />
+    <ClCompile Include="SimpleRequestHandler.cpp" />
+    <ClCompile Include="SimpleV8NotificationHandler.cpp" />
+    <ClCompile Include="WinAppDelegate.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="SimpleApp.h" />
-    <ClInclude Include="SimpleClient.h" />
+    <ClInclude Include="AppDelegate.h" />
+    <ClInclude Include="BrowserApp.h" />
+    <ClInclude Include="BrowserClient.h" />
+    <ClInclude Include="CefAppFactory.h" />
+    <ClInclude Include="CefDelegate.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="CefMixedMessageLoop.h" />
+    <ClInclude Include="MultiAppFactory.h" />
+    <ClInclude Include="RenderApp.h" />
     <ClInclude Include="SimpleDialogHandler.h" />
     <ClInclude Include="SimpleDisplayHandler.h" />
     <ClInclude Include="SimpleFocusHandler.h" />
@@ -141,7 +156,11 @@
     <ClInclude Include="SimpleLifeSpanHandler.h" />
     <ClInclude Include="SimpleLoadHandler.h" />
     <ClInclude Include="SimpleRenderHandler.h" />
-    <ClInclude Include="UIBase.h" />
+    <ClInclude Include="SimpleRenderProcessHandle.h" />
+    <ClInclude Include="SimpleRequestHandler.h" />
+    <ClInclude Include="SimpleV8NotificationHandler.h" />
+    <ClInclude Include="SimpleV8Interceptor.h" />
+    <ClInclude Include="WinAppDelegate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

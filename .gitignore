@@ -37,3 +37,16 @@
 /Debug/devtools_resources.pak
 /Debug/icudtl.dat
 /Debug/locales
+/Debug/snapshot_blob.bin
+/Debug/renderer.lnk
+/Debug/natives_blob.bin
+/Debug/main.lnk
+/Debug/js
+/Debug/debug.log
+/Debug/BrowserEmulator.pdb
+/Debug/BrowserEmulator.ilk
+/Debug/browser.lnk
+/Debug/.vs/BrowserEmulator/v14
+/build/BrowserEmulator.tlog
+/build
+*.log

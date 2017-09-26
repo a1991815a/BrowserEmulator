@@ -1,45 +1,31 @@
-#include "include/cef_app.h"
-#include <tchar.h>
-#include "SimpleApp.h"
+#include "CefDelegate.h"
+#include "WinAppDelegate.h"
+#include "MultiAppFactory.h"
 
-cef_string_t newString(const cef_char_t* str, size_t len, int isCopy = TRUE)
+int APIENTRY wWinMain(HINSTANCE hInstance,
+	HINSTANCE hPrevInstance,
+	LPTSTR lpCmdLine,
+	int nCmdShow) 
 {
-	cef_string_t tstr = {};
-	cef_string_set(str, len, &tstr, isCopy);
-	return tstr;
-}
-
-#define newConstString(str) newString(str, sizeof(str) / sizeof(cef_char_t), FALSE)
-
-
-int APIENTRY wWinMain(
-	_In_ HINSTANCE hInstance, 
-	_In_opt_ HINSTANCE hPrevInstance, 
-	_In_ LPWSTR lpCmdLine, 
-	_In_ int nShowCmd)
-{
-	UNREFERENCED_PARAMETER(hInstance);
 	UNREFERENCED_PARAMETER(hPrevInstance);
-	CefEnableHighDPISupport();
+	UNREFERENCED_PARAMETER(lpCmdLine);
+#ifdef _DEBUG
+	//::AllocConsole();
+#endif
+	CefRefPtr<CefCommandLine> commandLine = CefCommandLine::CreateCommandLine();
+	commandLine->InitFromString(::GetCommandLine());
 
-	CefSettings cefSettings;
-	cefSettings.no_sandbox = true;
-	cefSettings.locale = newString(_T("zh-CN"), 5);
-	//cefSettings.locales_dir_path = newConstString(_T("E:\\repo\\WinCef\\Resources\\locales"));
+	std::auto_ptr<CefDelegate> cefDelegate(new CefDelegate(hInstance, lpCmdLine));
+	//std::auto_ptr<WinAppDelegate> app(new WinAppDelegate());
+	//app->setInstance(hInstance);
+	//cefDelegate->setMixedMessageLoop(app.get());
+	//cefDelegate->setWnd(app->createWindow());
+	cefDelegate->setAppFactory(MultiAppFactory::createFactory());
+	cefDelegate->init(commandLine);
 
-	CefMainArgs args(hInstance);
-	int exitCode = CefExecuteProcess(args, NULL, NULL);
-	if (exitCode > 0)
-	{
-		printf("CefExecuteProcess failure: %d", exitCode);
-		return exitCode;
-	}
-
-	CefRefPtr<SimpleApp> app(new SimpleApp());
-	CefInitialize(args, cefSettings, app.get(), NULL);
-
-	CefRunMessageLoop();
-
-	CefShutdown();
-	return 0;
+	int exitCode = cefDelegate->runMessageLoop();
+#ifdef _DEBUG
+	//::FreeConsole();
+#endif
+	return exitCode;
 }
