@@ -18,12 +18,10 @@ public:
 	void setWnd(HWND val) { m_hWnd = val; }
 	CefWindowInfo& getWindowInfo() { return m_windowInfo; }
 	void setWindowInfo(const CefWindowInfo& val) { m_windowInfo = val; }
-	CefSettings& getSetting() { return getSetting(); }
+	CefSettings& getSetting() { return m_setting; }
 	void setSetting(const CefSettings& val) { setSetting(val); }
 	const CefMainArgs& getMainArgs() const { return m_mainArgs; }
 	void setMainArgs(const CefMainArgs& val) { m_mainArgs = val; }
-	bool isMutilProcess() const { return m_bIsMutilProcess; }
-	void setMutilProcess(bool val) { m_bIsMutilProcess = val; }
 	CefAppFactory* getAppFactory() const { return m_pAppFactory; }
 	void setAppFactory(CefAppFactory* val) { m_pAppFactory = val; }
 	CefMixedMessageLoop* getMixedMessageLoop() const { return m_pMixedMessageLoop; }

@@ -1,5 +1,7 @@
 #include "WinAppDelegate.h"
 #include "include\cef_app.h"
+#include "LogUtil.h"
+#include "resource.h"
 
 #define TIMER_ID 0x0080
 
@@ -21,24 +23,24 @@ HWND WinAppDelegate::createWindow(WindowInfo* windowInfo /* = NULL*/) const
 		windowInfo->winProc = WinAppDelegate::WinProc;
 		windowInfo->wndName = _T("ä¯ÀÀÆ÷");
 		windowInfo->wndClassEx = WNDCLASSEX();
-		windowInfo->dwStyle = WS_SIZEBOX | WS_SYSMENU | WS_VISIBLE;
+		windowInfo->dwStyle = WS_SYSMENU ;
 		WNDCLASSEX& wnd_class = windowInfo->wndClassEx;
 		wnd_class.cbSize = sizeof(wnd_class);
 		wnd_class.hCursor = ::LoadCursor(::GetModuleHandle(NULL), IDC_ARROW);
-		wnd_class.hIcon = ::LoadIcon(::GetModuleHandle(NULL), IDI_WINLOGO);
-		wnd_class.hIconSm = ::LoadIcon(::GetModuleHandle(NULL), IDI_WINLOGO);
+		wnd_class.hIcon = ::LoadIcon(::GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_LOGO));
+		wnd_class.hIconSm = ::LoadIcon(::GetModuleHandle(NULL), MAKEINTRESOURCE(IDB_LOGO));
 		wnd_class.lpszClassName = _T("master");
 		wnd_class.hbrBackground = (HBRUSH)::GetStockObject(WHITE_BRUSH);
-		wnd_class.style = CS_HREDRAW | CS_VREDRAW;
+		//wnd_class.style = CS_HREDRAW | CS_VREDRAW;
 		wnd_class.hInstance = m_hInstance;
 		wnd_class.lpfnWndProc = WinAppDelegate::WinProc;
 	}
 	
-	WNDCLASSEX wnd_class = windowInfo->wndClassEx;
+	WNDCLASSEX& wnd_class = windowInfo->wndClassEx;
 	::RegisterClassEx(&wnd_class);
 
 	HWND hWnd = ::CreateWindowEx(
-		WS_EX_TOPMOST,
+		0,
 		wnd_class.lpszClassName,
 		windowInfo->wndName,
 		windowInfo->dwStyle,
@@ -53,7 +55,7 @@ HWND WinAppDelegate::createWindow(WindowInfo* windowInfo /* = NULL*/) const
 	if (CefString(wnd_class.lpszClassName) == _T("master"))
 		delete windowInfo;
 
-	::ShowWindow(hWnd, SW_SHOW);
+	::ShowWindow(hWnd, SW_NORMAL);
 
 	return hWnd;
 }
@@ -65,21 +67,18 @@ bool WinAppDelegate::destroyWindow(HWND window) const
 
 int WinAppDelegate::doProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-	char text[32] = {};
-	sprintf_s(text, "msg: 0x%X\n", msg);
-	OutputDebugStringA(text);
+	RLOG("msg: 0x%X", msg);
 	switch (msg)
 	{
 	case WM_DESTROY:
 		if (--this->m_browserCount == 0)
-			CefQuitMessageLoop();
+			PostQuitMessage(0);
 		break;
 	case WM_CREATE:
 		++this->m_browserCount;
 		break;
 	case WM_TIMER:
-		if(!m_multiThreadMsgLoop)
-			::CefDoMessageLoopWork();
+		::CefDoMessageLoopWork();
 		break;
 	default:
 		return -1;
@@ -90,16 +89,24 @@ int WinAppDelegate::doProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 void WinAppDelegate::runMessageLoop()
 {
-	if(!m_multiThreadMsgLoop)
-		::SetTimer(NULL, TIMER_ID, this->m_loopTime, NULL);
+	static long preTime = ::GetTickCount();
+	static const long loopDelta = 60;
+
 	MSG msg = {};
-	while (::GetMessage(&msg, NULL, NULL, NULL) != 0)
+	while (msg.message != WM_QUIT)
 	{
-		::TranslateMessage(&msg);
-		::DispatchMessage(&msg);
+		if (PeekMessage(&msg, NULL, NULL, NULL, PM_REMOVE))
+		{
+			::TranslateMessage(&msg);
+			::DispatchMessage(&msg);
+		}
+		long curTime = ::GetTickCount();
+		if (curTime - preTime > loopDelta)
+		{
+			preTime = curTime;
+			CefDoMessageLoopWork();
+		}
 	}
-	if(!m_multiThreadMsgLoop)
-		::KillTimer(NULL, TIMER_ID);
 }
 
 HWND WinAppDelegate::createMessageWindow()

@@ -81,6 +81,7 @@
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>E:\repo\WinCef;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4100;4127;4244;4481;4512;4701;4702;4996</DisableSpecificWarnings>
+      <PreprocessorDefinitions>_UNICODE;UNICODE;_REMOTE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <LargeAddressAware>true</LargeAddressAware>
@@ -125,10 +126,14 @@
     <ClCompile Include="AppDelegate.cpp" />
     <ClCompile Include="BrowserApp.cpp" />
     <ClCompile Include="BrowserClient.cpp" />
+    <ClCompile Include="CefConfigFile.cpp" />
     <ClCompile Include="CefDelegate.cpp" />
-    <ClCompile Include="Log.cpp" />
+    <ClCompile Include="FileIni.cpp" />
+    <ClCompile Include="LogUtil.cpp" />
+    <ClCompile Include="log\LogClient.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MultiAppFactory.cpp" />
+    <ClCompile Include="OtherApp.cpp" />
     <ClCompile Include="RenderApp.cpp" />
     <ClCompile Include="SimpleJSDialogHandler.cpp" />
     <ClCompile Include="SimpleLifeSpanHandler.cpp" />
@@ -144,10 +149,14 @@
     <ClInclude Include="BrowserApp.h" />
     <ClInclude Include="BrowserClient.h" />
     <ClInclude Include="CefAppFactory.h" />
+    <ClInclude Include="CefConfigFile.h" />
     <ClInclude Include="CefDelegate.h" />
-    <ClInclude Include="Log.h" />
     <ClInclude Include="CefMixedMessageLoop.h" />
+    <ClInclude Include="FileIni.h" />
+    <ClInclude Include="LogUtil.h" />
+    <ClInclude Include="log\LogClient.h" />
     <ClInclude Include="MultiAppFactory.h" />
+    <ClInclude Include="OtherApp.h" />
     <ClInclude Include="RenderApp.h" />
     <ClInclude Include="SimpleDialogHandler.h" />
     <ClInclude Include="SimpleDisplayHandler.h" />

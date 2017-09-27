@@ -1,7 +1,7 @@
 #include "CefDelegate.h"
-#include "Log.h"
+#include "LogUtil.h"
 
-CefRefPtr<CefApp> CefDelegate::s_pMainApp;
+CefRefPtr<CefApp> CefDelegate::s_pMainApp = NULL;
 
 CefDelegate::CefDelegate(HINSTANCE hInstance, LPTSTR lpCmdLine)
 	:m_hWnd(NULL), m_windowInfo(), m_setting(), m_mainArgs(hInstance)
@@ -28,20 +28,20 @@ bool CefDelegate::init(CefRefPtr<CefCommandLine> command)
 
 	if (app.get() == NULL)
 	{
-		LOG("创建CefApp失败。也许是参数type:%s错误？", type.c_str());
+		RLOG("创建CefApp失败。也许是参数type:%s错误？", type.c_str());
 		return false;
 	}
 
 	int result = CefExecuteProcess(m_mainArgs, app, NULL);
 	if (result > 0)
 	{
-		LOG("CefExecuteProcess失败， exitCode=%d", result);
+		RLOG("CefExecuteProcess失败， exitCode=%d", result);
 		return false;
 	}
 
 	if (!CefInitialize(m_mainArgs, m_setting, app.get(), NULL))
 	{
-		LOG("CefInitialize失败");
+		RLOG("CefInitialize失败");
 		return false;
 	};
 
@@ -51,10 +51,10 @@ bool CefDelegate::init(CefRefPtr<CefCommandLine> command)
 
 int CefDelegate::runMessageLoop()
 {
-	//if (m_setting.multi_threaded_message_loop)
+	if (m_setting.multi_threaded_message_loop)
 		::CefRunMessageLoop();
-// 	else
-// 		m_pMixedMessageLoop->runMessageLoop();
+	else
+		m_pMixedMessageLoop->runMessageLoop();
 	::CefShutdown();
 
 	return 0;

@@ -24,7 +24,8 @@ void AppDelegate::runMessageLoop()
 
 LRESULT CALLBACK AppDelegate::WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
-	if (s_delegate->doProc(hWnd, msg, wParam, lParam) == S_OK)
-		return S_OK;
+	LRESULT result = s_delegate->doProc(hWnd, msg, wParam, lParam);
+	if (result != -1)
+		return result;
 	return ::DefWindowProc(hWnd, msg, wParam, lParam);
 }

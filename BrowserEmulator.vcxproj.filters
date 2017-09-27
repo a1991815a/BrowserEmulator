@@ -19,11 +19,17 @@
     <Filter Include="CefApp">
       <UniqueIdentifier>{6dc7d9c4-049b-4e4e-87c2-9d816903b188}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Client">
+    <Filter Include="LogClient">
+      <UniqueIdentifier>{d3a7d8b8-78b6-43f9-bc90-a526a114a399}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Handler">
       <UniqueIdentifier>{71820919-e86f-40d2-9b0a-0dc4b159bacb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Client\Handler">
+    <Filter Include="Handler\Handler">
       <UniqueIdentifier>{19e0ee39-178d-45f1-881e-cc9645570428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FileIni">
+      <UniqueIdentifier>{898590b4-bc9a-409c-87bc-0509e51cd135}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,9 +37,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CefDelegate.cpp">
-      <Filter>delegate</Filter>
-    </ClCompile>
-    <ClCompile Include="Log.cpp">
       <Filter>delegate</Filter>
     </ClCompile>
     <ClCompile Include="WinAppDelegate.cpp">
@@ -53,25 +56,40 @@
       <Filter>CefApp</Filter>
     </ClCompile>
     <ClCompile Include="BrowserClient.cpp">
-      <Filter>Client</Filter>
+      <Filter>Handler</Filter>
     </ClCompile>
     <ClCompile Include="SimpleJSDialogHandler.cpp">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClCompile>
     <ClCompile Include="SimpleLifeSpanHandler.cpp">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClCompile>
     <ClCompile Include="SimpleLoadHandler.cpp">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClCompile>
     <ClCompile Include="SimpleRenderHandler.cpp">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClCompile>
     <ClCompile Include="SimpleRenderProcessHandle.cpp">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClCompile>
     <ClCompile Include="SimpleRequestHandler.cpp">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="log\LogClient.cpp">
+      <Filter>LogClient</Filter>
+    </ClCompile>
+    <ClCompile Include="LogUtil.cpp">
+      <Filter>LogClient</Filter>
+    </ClCompile>
+    <ClCompile Include="OtherApp.cpp">
+      <Filter>CefApp</Filter>
+    </ClCompile>
+    <ClCompile Include="FileIni.cpp">
+      <Filter>FileIni</Filter>
+    </ClCompile>
+    <ClCompile Include="CefConfigFile.cpp">
+      <Filter>FileIni</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -88,9 +106,6 @@
       <Filter>delegate</Filter>
     </ClInclude>
     <ClInclude Include="CefDelegate.h">
-      <Filter>delegate</Filter>
-    </ClInclude>
-    <ClInclude Include="Log.h">
       <Filter>delegate</Filter>
     </ClInclude>
     <ClInclude Include="CefMixedMessageLoop.h">
@@ -112,31 +127,46 @@
       <Filter>CefApp</Filter>
     </ClInclude>
     <ClInclude Include="BrowserClient.h">
-      <Filter>Client</Filter>
+      <Filter>Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleDialogHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleDisplayHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleFocusHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleJSDialogHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleLifeSpanHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleLoadHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleRenderHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SimpleRequestHandler.h">
-      <Filter>Client\Handler</Filter>
+      <Filter>Handler\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="log\LogClient.h">
+      <Filter>LogClient</Filter>
+    </ClInclude>
+    <ClInclude Include="LogUtil.h">
+      <Filter>LogClient</Filter>
+    </ClInclude>
+    <ClInclude Include="OtherApp.h">
+      <Filter>CefApp</Filter>
+    </ClInclude>
+    <ClInclude Include="FileIni.h">
+      <Filter>FileIni</Filter>
+    </ClInclude>
+    <ClInclude Include="CefConfigFile.h">
+      <Filter>FileIni</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

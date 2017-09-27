@@ -1,6 +1,7 @@
 #include "MultiAppFactory.h"
 #include "BrowserApp.h"
 #include "RenderApp.h"
+#include "OtherApp.h"
 
 
 CefAppFactory* MultiAppFactory::createFactory()
@@ -15,7 +16,7 @@ CefApp* MultiAppFactory::createBrowserApp(HWND hWnd)
 
 CefApp* MultiAppFactory::createOtherApp(const CefString& type, HWND hWnd)
 {
-	return NULL;
+	return new OtherApp();
 }
 
 CefApp* MultiAppFactory::createRenderApp(HWND hWnd)

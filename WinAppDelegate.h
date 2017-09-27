@@ -15,12 +15,8 @@ public:
 
 	virtual void runMessageLoop() override;
 
-
-
 	HINSTANCE getInstance() const { return m_hInstance; }
 	void setInstance(HINSTANCE val) { m_hInstance = val; }
-
-	
 private:
 	HWND createMessageWindow();
 	int m_browserCount;
